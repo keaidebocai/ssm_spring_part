@@ -1,0 +1,7 @@
+# Project exclude paths
+/spring-aop-annotation-10/target/
+/spring-ioc-annotation-03/target/
+/spring-ioc-xml-01/target/
+/spring-java-practice-07/target/
+/spring-tx-annotation-12/target/
+/spring-xml-practice-02/target/

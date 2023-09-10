@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- init-method 和 destroy-method 是知名初始化方法和销毁方法 -->
+    <bean id="javaBean" class="top.woaibocai.ioc04.JavaBean" init-method="init" destroy-method="clear"></bean>
+
+    <!-- 单例和多例测是 -->
+    <bean id="javaBean1" class="top.woaibocai.ioc04.JavaBean1" scope="prototype"></bean>
+
+</beans>

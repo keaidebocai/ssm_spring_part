@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 无参构造的单例bean -->
+    <bean id="happyComponent1" class="top.woaibocai.ioc01.HappyComponent"></bean>
+    <bean id="happyComponent2" class="top.woaibocai.ioc01.HappyComponent"></bean>
+
+    <!-- 静态工厂的实例化方法 -->
+
+    <bean id="clientService" class="top.woaibocai.ioc01.ClientService" factory-method="createInstance"></bean>
+
+    <!--
+        非静态工厂的实例化方法
+    -->
+
+    <bean id="defaultServiceLocator" class="top.woaibocai.ioc01.DefaultServiceLocator"></bean>
+
+    <bean id="clientService2" factory-bean="defaultServiceLocator" factory-method="createClientServiceInstance"></bean>
+
+
+</beans>

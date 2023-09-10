@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  -->
+    <bean id="userDao" class="top.woaibocai.ioc02.UserDao"></bean>
+
+    <bean id="userService1" class="top.woaibocai.ioc02.UserService">
+        <constructor-arg ref="userDao"></constructor-arg>
+    </bean>
+
+    <!--
+        按顺序进行注入
+
+    -->
+    <bean id="userService2" class="top.woaibocai.ioc02.UserService">
+        <constructor-arg value="18"></constructor-arg>
+        <constructor-arg value="orgbzi"></constructor-arg>
+        <constructor-arg ref="userDao"></constructor-arg>
+    </bean>
+
+    <!-- 按照name value/ref 的方式注入 -->
+    <bean id="userService3" class="top.woaibocai.ioc02.UserService">
+        <constructor-arg name="age" value="18"></constructor-arg>
+        <constructor-arg name="name" value="orgbzi"></constructor-arg>
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+
+    <!-- 按照下角标注入 index value/ref -->
+    <bean id="userService4" class="top.woaibocai.ioc02.UserService">
+        <constructor-arg index="0" value="18"></constructor-arg>
+        <constructor-arg index="1" value="orgbzi"></constructor-arg>
+        <constructor-arg index="2" ref="userDao"></constructor-arg>
+    </bean>
+
+    <!-- 用setter 方法注入 -->
+    <bean id="movieFinder" class="top.woaibocai.ioc02.MovieFinder"></bean>
+
+    <bean id="simpleMovieLister1" class="top.woaibocai.ioc02.SimpleMovieLister">
+        <!--
+            setter方法，注入movieFinder对象的标识id
+            name = 属性名  ref = 引用bean的id值
+        -->
+        <property name="movieFinder" ref="movieFinder"></property>
+        <!--
+            setter方法，注入基本数据类型movieName
+            name = 属性名 value= 基本类型值
+        -->
+        <property name="movieName" value="orgbzi"></property>
+    </bean>
+
+
+
+</beans>
